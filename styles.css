@@ -2510,10 +2510,23 @@ body.dark-mode .stat-item {
 
 /* Contact Form */
 .contact-form-container {
+    display: flex;
+    flex-direction: column;
     background: var(--card-bg);
     border-radius: 1rem;
-    padding: 2.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: min(1rem, 10%) 1rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    
+}
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: min(1rem, 8%);
+    border-radius: 1rem;
+
 }
 
 .form-header {
@@ -2533,13 +2546,16 @@ body.dark-mode .stat-item {
 }
 
 .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .form-group {
+    width: 100%;
+    padding: min(1rem, 8%) 1rem;
     position: relative;
     margin-bottom: 1.5rem;
 }
@@ -2589,9 +2605,10 @@ body.dark-mode .stat-item {
     resize: vertical;
     min-height: 120px;
 }
-
 .preferences {
     margin: 1.5rem 0;
+    width: 100%;
+
 }
 
 .checkbox-container {
@@ -2601,6 +2618,8 @@ body.dark-mode .stat-item {
     color: var(--text-secondary);
     font-size: 0.9rem;
     cursor: pointer;
+    padding: 0.5rem 0 0 0.5rem;
+
 }
 
 .checkbox-container input[type="checkbox"] {
@@ -2610,7 +2629,6 @@ body.dark-mode .stat-item {
 .checkmark {
     width: 20px;
     height: 20px;
-    border: 2px solid var(--border-color);
     border-radius: 4px;
     display: inline-block;
     position: relative;
@@ -2633,8 +2651,8 @@ body.dark-mode .stat-item {
 }
 
 .submit-btn {
-    width: 100%;
-    padding: 1rem;
+    width: 95%;
+    padding: min(1rem, 8%) 1rem;
     background: var(--accent-color);
     color: var(--bg-color);
     border: none;
