@@ -1072,11 +1072,6 @@ body, .product-card, .collection-card, .feature-card, .team-member, .info-card, 
     color: var(--dark-text);
 }
 
-.dark-mode .action-btn:hover {
-    background: var(--accent-color);
-    color: var(--bg-color);
-}
-
 .dark-mode .filter-btn {
     border-color: var(--dark-border);
     color: var(--dark-text);
@@ -2820,4 +2815,305 @@ body.dark-mode .stat-item {
     background: var(--dark-text);
     color: var(--dark-bg);
 }
+
+/* Payment Section Styles */
+.payment-section {
+    padding: 4rem 5%;
+    background: var(--bg-color);
+}
+
+.payment-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.payment-info {
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.payment-info h3 {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.payment-method {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--bg-color);
+    border-radius: 0.8rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.payment-method:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.payment-method.active {
+    border-color: var(--accent-color);
+    background: var(--accent-color);
+}
+
+.payment-method.active i,
+.payment-method.active span {
+    color: var(--bg-color);
+}
+
+.payment-method i {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.payment-method span {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.security-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: var(--bg-color);
+    border-radius: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.security-info i {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
+
+.security-info p {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.payment-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    background: var(--bg-color);
+    border-radius: 0.8rem;
+}
+
+.feature i {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature span {
+    color: var(--text-color);
+    font-size: 0.8rem;
+}
+
+.payment-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.order-summary {
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary h3 {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.summary-items {
+    margin-bottom: 1.5rem;
+}
+
+.summary-total {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.summary-total>div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+}
+
+.summary-total .total {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+.payment-form {
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.input-with-icon input {
+    padding-left: 3rem;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.custom-checkbox {
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.3rem;
+    appearance: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.custom-checkbox:checked {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.custom-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    color: var(--bg-color);
+    font-size: 0.8rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+    padding: 1.2rem;
+    background: var(--accent-color);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Dark mode styles for payment section */
+body.dark-mode .payment-info,
+body.dark-mode .payment-form-container,
+body.dark-mode .order-summary {
+    background: #232526;
+}
+
+body.dark-mode .payment-method,
+body.dark-mode .security-info,
+body.dark-mode .feature {
+    background: #181a1b;
+}
+
+body.dark-mode .payment-form input,
+body.dark-mode .custom-checkbox {
+    background: #181a1b;
+    border-color: #2c2c2c;
+}
+
+body.dark-mode .summary-total {
+    border-color: #2c2c2c;
+}
+
+/* Responsive styles for payment section */
+@media (max-width: 1024px) {
+    .payment-container {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-methods {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .payment-methods {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .payment-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+
+    .payment-methods,
+    .payment-features {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-form .form-row {
+        grid-template-columns: 1fr;
+    }
 }
