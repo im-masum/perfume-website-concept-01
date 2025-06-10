@@ -3105,3 +3105,151 @@ body.dark-mode .custom-checkbox {
 body.dark-mode .summary-total {
     border-color: #2c2c2c;
 }
+
+/* Search Bar Styles */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--bg-color);
+    border-radius: 2rem;
+    padding: 0.3rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.search-container:focus-within {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(var(--accent-color-rgb), 0.1);
+}
+
+.search-input {
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1rem;
+    width: 200px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.search-btn {
+    background: var(--accent-color);
+    border: none;
+    color: var(--bg-color);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    transform: scale(1.05);
+    background: var(--accent-color-hover);
+}
+
+/* Dark mode styles for search */
+body.dark-mode .search-container {
+    background: #232526;
+    border-color: #2c2c2c;
+}
+
+body.dark-mode .search-input {
+    color: #fff;
+}
+
+body.dark-mode .search-input::placeholder {
+    color: #fff;
+    opacity: 0.5;
+}
+
+/* Responsive styles for search */
+@media (max-width: 768px) {
+    .search-container {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .nav-icons {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+/* Search Results Styles */
+.no-results-message {
+    text-align: center;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 1rem;
+    margin: 2rem auto;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.no-results-message i {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.no-results-message p {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.clear-search {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.clear-search:hover {
+    background: var(--accent-color-hover);
+    transform: translateY(-2px);
+}
+
+/* Search Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-container.focused {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(var(--accent-color-rgb), 0.1);
+}
+
+/* Dark mode styles for search results */
+body.dark-mode .no-results-message {
+    background: #232526;
+}
+
+body.dark-mode .clear-search {
+    background: var(--accent-color);
+}
