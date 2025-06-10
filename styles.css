@@ -1072,6 +1072,11 @@ body, .product-card, .collection-card, .feature-card, .team-member, .info-card, 
     color: var(--dark-text);
 }
 
+.dark-mode .action-btn:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}
+
 .dark-mode .filter-btn {
     border-color: var(--dark-border);
     color: var(--dark-text);
@@ -2577,7 +2582,6 @@ body.dark-mode .stat-item {
 .form-group textarea:focus {
     border-color: var(--accent-color);
     outline: none;
-    box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.1);
 }
 
 .form-group input:focus+label,
@@ -2610,6 +2614,8 @@ body.dark-mode .stat-item {
     color: var(--text-secondary);
     font-size: 0.9rem;
     cursor: pointer;
+    padding: 0.5rem 0 0 0.5rem;
+
 }
 
 .checkbox-container input[type="checkbox"] {
@@ -2816,440 +2822,317 @@ body.dark-mode .stat-item {
 
 /* Payment Section Styles */
 .payment-section {
-    padding: 4rem 5%;
-    background: var(--bg-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 80px 0;
+    background-color: var(--light-bg);
 }
 
 .payment-container {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    gap: 2rem;
-    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    margin-top: 40px;
 }
 
-.payment-info {
+.payment-summary {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-summary h3 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.order-items {
+    margin-bottom: 20px;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.order-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.order-item-details {
     flex: 1;
-    padding: 2rem;
-    background: var(--card-bg);
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.order-item-details h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.order-item-price {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.order-total {
+    margin-top: 20px;
+}
+
+.order-total>div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.total {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+    border-top: 2px solid var(--border-color);
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.payment-form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 20px;
 }
 
-.payment-info h3 {
-    color: var(--text-color);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    position: relative;
-    padding-bottom: 0.5rem;
-}
-
-.payment-info h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background: var(--accent-color);
-}
-
-.payment-category {
-    margin-bottom: 2rem;
-}
-
-.payment-category h4 {
-    color: var(--text-color);
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    opacity: 0.8;
-}
-
-.payment-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.payment-method {
-    flex: 1 1 calc(25% - 1rem);
-    min-width: 120px;
+.form-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 1.2rem;
-    background: var(--bg-color);
-    border-radius: 0.8rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
+    gap: 8px;
 }
 
-.payment-method::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--accent-color);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 0;
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
-.payment-method:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-color);
-}
-
-.payment-method.active {
-    border-color: var(--accent-color);
-    background: var(--accent-color);
-}
-
-.payment-method.active i,
-.payment-method.active span {
-    color: var(--bg-color);
-}
-
-.payment-method i {
-    font-size: 2rem;
-    color: var(--accent-color);
-    margin-bottom: 0.8rem;
-    transition: color 0.3s ease;
-    position: relative;
-    z-index: 1;
-}
-
-.payment-method span {
-    color: var(--text-color);
-    font-size: 0.9rem;
+.form-group label {
     font-weight: 500;
-    transition: color 0.3s ease;
-    position: relative;
-    z-index: 1;
-    text-align: center;
-}
-
-.payment-features {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.feature {
-    flex: 1 1 calc(33.333% - 1rem);
-    min-width: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1.2rem;
-    background: var(--bg-color);
-    border-radius: 0.8rem;
-    transition: all 0.3s ease;
-}
-
-.feature:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.feature i {
-    color: var(--accent-color);
-    font-size: 1.5rem;
-    margin-bottom: 0.8rem;
-}
-
-.feature span {
     color: var(--text-color);
-    font-size: 0.9rem;
-    font-weight: 500;
 }
 
-.security-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.2rem;
-    background: var(--bg-color);
-    border-radius: 0.8rem;
-    margin: 1rem 0;
+.form-group input {
+    padding: 12px;
     border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
 }
 
-.security-info i {
-    color: var(--accent-color);
-    font-size: 1.5rem;
+.form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
 }
 
-.security-info p {
-    color: var(--text-color);
-    font-size: 0.9rem;
-    font-weight: 500;
+.form-group input.error {
+    border-color: var(--error-color);
 }
 
-/* Payment Method Specific Colors */
-.payment-method[data-method="visa"] i {
-    color: #1A1F71;
+.error-message {
+    color: var(--error-color);
+    font-size: 14px;
+    margin-top: 5px;
 }
 
-.payment-method[data-method="mastercard"] i {
-    color: #EB001B;
+.pay-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.payment-method[data-method="amex"] i {
-    color: #2E77BB;
+.pay-button:hover {
+    background-color: var(--primary-dark);
 }
 
-.payment-method[data-method="discover"] i {
-    color: #FF6000;
+.pay-button:disabled {
+    background-color: var(--border-color);
+    cursor: not-allowed;
 }
 
-.payment-method[data-method="paypal"] i {
-    color: #003087;
+.success-message,
+.error-message {
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
 }
 
-.payment-method[data-method="apple"] i {
-    color: #000000;
+.success-message {
+    background-color: var(--success-bg);
+    color: var(--success-color);
 }
 
-.payment-method[data-method="google"] i {
-    color: #4285F4;
+.error-message {
+    background-color: var(--error-bg);
+    color: var(--error-color);
 }
 
-.payment-method[data-method="amazon"] i {
-    color: #FF9900;
+.success-message i,
+.error-message i {
+    font-size: 40px;
+    margin-bottom: 10px;
 }
 
-.payment-method[data-method="bitcoin"] i {
-    color: #F7931A;
-}
-
-.payment-method[data-method="ethereum"] i {
-    color: #627EEA;
-}
-
-.payment-method[data-method="usdt"] i {
-    color: #26A17B;
-}
-
-/* Responsive styles for payment section */
-@media (max-width: 1024px) {
-    .payment-container {
-        flex-direction: column;
-    }
-
-    .payment-method {
-        flex: 1 1 calc(33.333% - 1rem);
-    }
-
-    .feature {
-        flex: 1 1 calc(50% - 1rem);
-    }
-}
-
+/* Responsive Styles */
 @media (max-width: 768px) {
-    .payment-method {
-        flex: 1 1 calc(50% - 1rem);
+    .payment-container {
+        grid-template-columns: 1fr;
     }
 
-    .feature {
-        flex: 1 1 100%;
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Success Page Styles */
+.success-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-bg);
+    padding: 20px;
+}
+
+.success-container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.success-icon {
+    font-size: 80px;
+    color: var(--success-color);
+    margin-bottom: 20px;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.success-container h1 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 32px;
+}
+
+.success-container p {
+    color: var(--text-color);
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.order-details {
+    background-color: var(--light-bg);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.order-details h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.order-info {
+    text-align: left;
+}
+
+.order-info p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.order-info strong {
+    color: var(--text-color);
+    margin-right: 10px;
+}
+
+.success-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
     }
 }
 
 @media (max-width: 480px) {
-    .payment-options {
+    .success-container {
+        padding: 20px;
+    }
+
+    .success-actions {
         flex-direction: column;
     }
 
-    .payment-method {
-        flex: 1 1 100%;
-    }
-
-    .payment-features {
-        flex-direction: column;
-    }
-}
-
-/* Dark mode styles for payment section */
-body.dark-mode .payment-info,
-body.dark-mode .payment-form-container,
-body.dark-mode .order-summary {
-    background: #232526;
-}
-
-body.dark-mode .payment-method,
-body.dark-mode .security-info,
-body.dark-mode .feature {
-    background: #181a1b;
-}
-
-body.dark-mode .payment-form input,
-body.dark-mode .custom-checkbox {
-    background: #181a1b;
-    border-color: #2c2c2c;
-}
-
-body.dark-mode .summary-total {
-    border-color: #2c2c2c;
-}
-
-/* Search Bar Styles */
-.search-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    background: var(--bg-color);
-    border-radius: 2rem;
-    padding: 0.3rem;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-}
-
-.search-container:focus-within {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 2px rgba(var(--accent-color-rgb), 0.1);
-}
-
-.search-input {
-    background: transparent;
-    border: none;
-    padding: 0.5rem 1rem;
-    width: 200px;
-    color: var(--text-color);
-    font-size: 0.9rem;
-    outline: none;
-}
-
-.search-input::placeholder {
-    color: var(--text-color);
-    opacity: 0.7;
-}
-
-.search-btn {
-    background: var(--accent-color);
-    border: none;
-    color: var(--bg-color);
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.search-btn:hover {
-    transform: scale(1.05);
-    background: var(--accent-color-hover);
-}
-
-/* Dark mode styles for search */
-body.dark-mode .search-container {
-    background: #232526;
-    border-color: #2c2c2c;
-}
-
-body.dark-mode .search-input {
-    color: #fff;
-}
-
-body.dark-mode .search-input::placeholder {
-    color: #fff;
-    opacity: 0.5;
-}
-
-/* Responsive styles for search */
-@media (max-width: 768px) {
-    .search-container {
-        width: 100%;
-        margin: 1rem 0;
-    }
-
-    .search-input {
+    .btn {
         width: 100%;
     }
-
-    .nav-icons {
-        flex-direction: column;
-        width: 100%;
-    }
-}
-
-/* Search Results Styles */
-.no-results-message {
-    text-align: center;
-    padding: 2rem;
-    background: var(--card-bg);
-    border-radius: 1rem;
-    margin: 2rem auto;
-    max-width: 400px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.no-results-message i {
-    font-size: 2rem;
-    color: var(--accent-color);
-    margin-bottom: 1rem;
-}
-
-.no-results-message p {
-    color: var(--text-color);
-    margin-bottom: 1rem;
-}
-
-.clear-search {
-    background: var(--accent-color);
-    color: var(--bg-color);
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.clear-search:hover {
-    background: var(--accent-color-hover);
-    transform: translateY(-2px);
-}
-
-/* Search Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.search-container.focused {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 2px rgba(var(--accent-color-rgb), 0.1);
-}
-
-/* Dark mode styles for search results */
-body.dark-mode .no-results-message {
-    background: #232526;
-}
-
-body.dark-mode .clear-search {
-    background: var(--accent-color);
 }
