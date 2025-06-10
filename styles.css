@@ -2510,7 +2510,7 @@ body.dark-mode .stat-item {
     background: var(--card-bg);
     border-radius: 1rem;
     padding: min(1rem, 10%) 1rem;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 
 }
 
@@ -2560,7 +2560,7 @@ body.dark-mode .stat-item {
 .form-group textarea {
     width: 100%;
     padding: 1rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid grey;
     border-radius: 0.5rem;
     background: var(--input-bg);
     color: var(--text-color);
